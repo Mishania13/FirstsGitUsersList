@@ -14,9 +14,19 @@ class UsersListVC: UIViewController {
     var profiles = [UserListModel]()
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableView.isHidden = true
+        
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+    }
     
     func fetchData() {
+        
         
         guard let url = URL(string: "https://api.github.com/users") else {return}
         
@@ -25,7 +35,6 @@ class UsersListVC: UIViewController {
             if let error = error {
                 print("Fetch data error: \(error.localizedDescription)")
             }
-            
             guard let data = data else {return}
             
             do {
@@ -33,8 +42,11 @@ class UsersListVC: UIViewController {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let profiles = try decoder.decode([UserListModel].self, from: data)
                 self.profiles = profiles
+                self.tableView.separatorStyle = .none
                 
                 DispatchQueue.main.async {
+                    self.tableView.isHidden = false
+                    self.activityIndicator.stopAnimating()
                     self.tableView.reloadData()
                 }
                 
@@ -50,8 +62,12 @@ class UsersListVC: UIViewController {
         
         let profile = profiles[indexPath.row]
         
-        cell.nameLabel.text = "Name: \(profile.login.capitalized)"
-        cell.idLabel.text = "ID: \(profile.id)"
+        if let name = profile.login {
+            cell.nameLabel.text = "Name: \(name.capitalized)"
+        }
+        if let id = profile.id {
+            cell.idLabel.text = "ID: \(id)"
+        }
         
         cell.userImage.layer.cornerRadius = 8
         cell.userImage.clipsToBounds = true
@@ -59,14 +75,15 @@ class UsersListVC: UIViewController {
         cell.activityIndicator.startAnimating()
         cell.activityIndicator.hidesWhenStopped = true
         
-        guard let url = URL(string: profile.avatarUrl) else {return}
+        guard let imageUrl = profile.avatarUrl else {return}
         
-        if let imageUrlCache = imageCach.object(forKey: profile.avatarUrl as NSString) as? URL {
+        guard let url = URL(string: imageUrl) else {return}
+        
+        if let imageUrlCache = imageCach.object(forKey: imageUrl as NSString) as? URL {
             if let data = try? Data(contentsOf: imageUrlCache) {
                 cell.userImage.image = UIImage(data: data)
             }
         } else {
-            
             let session = URLSession.shared
             session.dataTask(with: url) { (data, _, error) in
                 if let error = error {
@@ -85,6 +102,7 @@ class UsersListVC: UIViewController {
 }
 
 extension UsersListVC: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return profiles.count
     }
@@ -96,8 +114,4 @@ extension UsersListVC: UITableViewDataSource {
         
         return cell
     }
-}
-
-extension UsersListVC: UITableViewDelegate {
-    
 }

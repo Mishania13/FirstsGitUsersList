@@ -9,7 +9,7 @@
 import Foundation
 
 struct UserListModel: Decodable {
-    let login: String
-    let id: Int
-    let avatarUrl: String
+    let login: String?
+    let id: Int?
+    let avatarUrl: String?
 }

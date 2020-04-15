@@ -20,7 +20,7 @@ class MainVC: UIViewController {
         buttonsView(for: showImageButton)
         buttonsView(for: showUsersButton)
     }
-
+    
     @IBAction func imageButtonTap() {
         performSegue(withIdentifier: "ImageIdentifire", sender: self)
     }
@@ -40,7 +40,8 @@ class MainVC: UIViewController {
         let profilecVC = segue.destination as? UsersListVC
         
         if segue.identifier == "UsersIdentifire" {
-            profilecVC?.fetchData()
+
+                profilecVC?.fetchData()
         }
     }
 }
