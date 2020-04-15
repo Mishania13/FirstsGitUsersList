@@ -77,31 +77,31 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="130" id="dra-TL-D8I" customClass="UserListCell" customModule="FirstsGitUsersList" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="130"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="140" id="dra-TL-D8I" customClass="UserListCell" customModule="FirstsGitUsersList" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dra-TL-D8I" id="495-aa-fvl">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ucd-qW-hOw">
-                                                    <rect key="frame" x="10" y="5" width="120" height="120"/>
+                                                    <rect key="frame" x="10" y="10" width="120" height="120"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="120" id="EQX-QY-dTE"/>
                                                         <constraint firstAttribute="width" constant="120" id="b5d-QD-hlf"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Ncc-iM-pS4">
-                                                    <rect key="frame" x="160" y="11" width="234" height="88"/>
+                                                    <rect key="frame" x="160" y="11" width="234" height="98"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTC-6n-KGV">
-                                                            <rect key="frame" x="0.0" y="0.0" width="234" height="44"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="234" height="49"/>
                                                             <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="23"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNS-Tv-0gD">
-                                                            <rect key="frame" x="0.0" y="44" width="234" height="44"/>
+                                                            <rect key="frame" x="0.0" y="49" width="234" height="49"/>
                                                             <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="23"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -109,12 +109,14 @@
                                                     </subviews>
                                                 </stackView>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="pmD-El-Dq2">
-                                                    <rect key="frame" x="60" y="55" width="20" height="20"/>
+                                                    <rect key="frame" x="60" y="60" width="20" height="20"/>
                                                 </activityIndicatorView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="ucd-qW-hOw" secondAttribute="bottom" constant="10" id="BED-Il-YoM"/>
                                                 <constraint firstItem="Ncc-iM-pS4" firstAttribute="leading" secondItem="ucd-qW-hOw" secondAttribute="trailing" constant="30" id="RPw-ce-Nl7"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ncc-iM-pS4" secondAttribute="trailing" constant="20" id="WMg-wi-MiX"/>
+                                                <constraint firstItem="ucd-qW-hOw" firstAttribute="top" secondItem="495-aa-fvl" secondAttribute="top" constant="10" id="c1C-mc-LVS"/>
                                                 <constraint firstItem="ucd-qW-hOw" firstAttribute="leading" secondItem="495-aa-fvl" secondAttribute="leading" constant="10" id="eHz-cO-Uho"/>
                                                 <constraint firstItem="Ncc-iM-pS4" firstAttribute="top" secondItem="495-aa-fvl" secondAttribute="topMargin" id="fBl-yW-5AT"/>
                                                 <constraint firstItem="pmD-El-Dq2" firstAttribute="centerX" secondItem="ucd-qW-hOw" secondAttribute="centerX" id="gqu-3g-fvu"/>
