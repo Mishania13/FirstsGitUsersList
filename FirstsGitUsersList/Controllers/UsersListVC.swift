@@ -12,6 +12,8 @@ class UsersListVC: UIViewController {
     
     private let imageCach = NSCache<NSString, AnyObject>()
     var profiles = [UserListModel]()
+    var ourCell: UserListCell?
+    var selectedCellImage: UIImage?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -99,7 +101,13 @@ class UsersListVC: UIViewController {
             }.resume()
         }
     }
+    
+    
+    
+// MARK: - Navigator
+//
 }
+// MARK: - Data Source
 
 extension UsersListVC: UITableViewDataSource {
     
@@ -114,4 +122,18 @@ extension UsersListVC: UITableViewDataSource {
         
         return cell
     }
+}
+
+//MARK: - Delegate
+extension UsersListVC: UITableViewDelegate {
+    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell = self.tableView.cellForRow(at: indexPath) as? UserListCell
+        self.selectedCellImage = cell?.userImage.image
+        
+        self.performSegue(withIdentifier: "UserProfileIdentifire", sender: profiles[indexPath.row].avatarUrl)
+    }
+  
 }

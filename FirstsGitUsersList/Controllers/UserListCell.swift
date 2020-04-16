@@ -14,7 +14,4 @@ class UserListCell: UITableViewCell {
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
-
-
 }

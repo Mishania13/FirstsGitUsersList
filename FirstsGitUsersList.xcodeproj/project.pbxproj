@@ -17,6 +17,8 @@
 		D678792A2445E5CB0032CFB7 /* UsersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67879292445E5CB0032CFB7 /* UsersListVC.swift */; };
 		D678792C2445E8A80032CFB7 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D678792B2445E8A80032CFB7 /* UserListCell.swift */; };
 		D678792E2445F4B60032CFB7 /* UserListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D678792D2445F4B60032CFB7 /* UserListModel.swift */; };
+		D6787938244796780032CFB7 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6787937244796780032CFB7 /* UserInfoModel.swift */; };
+		D678793A2447A0000032CFB7 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67879392447A0000032CFB7 /* UserInfoVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +32,10 @@
 		D678791F2445C3930032CFB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D67879272445C7160032CFB7 /* ImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVC.swift; sourceTree = "<group>"; };
 		D67879292445E5CB0032CFB7 /* UsersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListVC.swift; sourceTree = "<group>"; };
-		D678792B2445E8A80032CFB7 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = SOURCE_ROOT; };
+		D678792B2445E8A80032CFB7 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
 		D678792D2445F4B60032CFB7 /* UserListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListModel.swift; sourceTree = "<group>"; };
+		D6787937244796780032CFB7 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
+		D67879392447A0000032CFB7 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,19 +68,53 @@
 		D67879102445C3900032CFB7 /* FirstsGitUsersList */ = {
 			isa = PBXGroup;
 			children = (
-				D67879112445C3900032CFB7 /* AppDelegate.swift */,
-				D67879132445C3900032CFB7 /* SceneDelegate.swift */,
-				D67879152445C3900032CFB7 /* MainVC.swift */,
-				D67879172445C3900032CFB7 /* Main.storyboard */,
-				D678791A2445C3930032CFB7 /* Assets.xcassets */,
-				D678791C2445C3930032CFB7 /* LaunchScreen.storyboard */,
-				D678791F2445C3930032CFB7 /* Info.plist */,
-				D67879272445C7160032CFB7 /* ImageVC.swift */,
-				D67879292445E5CB0032CFB7 /* UsersListVC.swift */,
-				D678792D2445F4B60032CFB7 /* UserListModel.swift */,
-				D678792B2445E8A80032CFB7 /* UserListCell.swift */,
+				D6787935244795490032CFB7 /* SupportFiles */,
+				D67879362447955D0032CFB7 /* Models */,
+				D6787934244794E10032CFB7 /* Views */,
+				D6787933244794680032CFB7 /* Controllers */,
 			);
 			path = FirstsGitUsersList;
+			sourceTree = "<group>";
+		};
+		D6787933244794680032CFB7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D67879152445C3900032CFB7 /* MainVC.swift */,
+				D67879272445C7160032CFB7 /* ImageVC.swift */,
+				D67879292445E5CB0032CFB7 /* UsersListVC.swift */,
+				D678792B2445E8A80032CFB7 /* UserListCell.swift */,
+				D67879392447A0000032CFB7 /* UserInfoVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D6787934244794E10032CFB7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D67879172445C3900032CFB7 /* Main.storyboard */,
+				D678791C2445C3930032CFB7 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D6787935244795490032CFB7 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D67879112445C3900032CFB7 /* AppDelegate.swift */,
+				D67879132445C3900032CFB7 /* SceneDelegate.swift */,
+				D678791A2445C3930032CFB7 /* Assets.xcassets */,
+				D678791F2445C3930032CFB7 /* Info.plist */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		D67879362447955D0032CFB7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D678792D2445F4B60032CFB7 /* UserListModel.swift */,
+				D6787937244796780032CFB7 /* UserInfoModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,11 +190,13 @@
 			files = (
 				D678792C2445E8A80032CFB7 /* UserListCell.swift in Sources */,
 				D67879282445C7160032CFB7 /* ImageVC.swift in Sources */,
+				D6787938244796780032CFB7 /* UserInfoModel.swift in Sources */,
 				D67879162445C3900032CFB7 /* MainVC.swift in Sources */,
 				D67879122445C3900032CFB7 /* AppDelegate.swift in Sources */,
 				D678792A2445E5CB0032CFB7 /* UsersListVC.swift in Sources */,
 				D678792E2445F4B60032CFB7 /* UserListModel.swift in Sources */,
 				D67879142445C3900032CFB7 /* SceneDelegate.swift in Sources */,
+				D678793A2447A0000032CFB7 /* UserInfoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +342,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TY8AJ3X7FD;
-				INFOPLIST_FILE = FirstsGitUsersList/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FirstsGitUsersList/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,7 +360,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TY8AJ3X7FD;
-				INFOPLIST_FILE = FirstsGitUsersList/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FirstsGitUsersList/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
