@@ -37,11 +37,19 @@ class MainVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let profilecVC = segue.destination as? UsersListVC
+        let profilesVC = segue.destination as? UsersListVC
         
         if segue.identifier == "UsersIdentifire" {
 
-                profilecVC?.fetchData()
+            NetworkManager.fetchData(url: "https://api.github.com/users",
+                                     jsonData: { (profiles) in
+                                        profilesVC?.profiles = profiles
+            }) {
+                profilesVC?.tableView.isHidden = false
+                profilesVC?.activityIndicator.isHidden = true
+                profilesVC?.tableView.reloadData()
+                
+            }
         }
     }
 }

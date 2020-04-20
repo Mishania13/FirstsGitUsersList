@@ -10,7 +10,6 @@ import UIKit
 
 class UsersListVC: UIViewController {
     
-    private let imageCach = NSCache<NSString, AnyObject>()
     var profiles = [UserListModel]()
     var ourCell: UserListCell?
     var selectedCellImage: UIImage?
@@ -27,37 +26,7 @@ class UsersListVC: UIViewController {
         activityIndicator.hidesWhenStopped = true
     }
     
-    func fetchData() {
-        
-        
-        guard let url = URL(string: "https://api.github.com/users") else {return}
-        
-        URLSession.shared.dataTask(with: url) { (data, _, error) in
-            
-            if let error = error {
-                print("Fetch data error: \(error.localizedDescription)")
-            }
-            guard let data = data else {return}
-            
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let profiles = try decoder.decode([UserListModel].self, from: data)
-                self.profiles = profiles
-                self.tableView.separatorStyle = .none
-                
-                DispatchQueue.main.async {
-                    self.tableView.isHidden = false
-                    self.activityIndicator.stopAnimating()
-                    self.tableView.reloadData()
-                }
-                
-            } catch let error {
-                print("Decoder error: \(error.localizedDescription)")
-            }
-        }.resume()
-        
-    }
+    
     
     
     func cellConfiguration(cell: UserListCell, for indexPath: IndexPath) {
@@ -78,34 +47,27 @@ class UsersListVC: UIViewController {
         cell.activityIndicator.hidesWhenStopped = true
         
         guard let imageUrl = profile.avatarUrl else {return}
-        
+
         guard let url = URL(string: imageUrl) else {return}
-        
-        if let imageUrlCache = imageCach.object(forKey: imageUrl as NSString) as? URL {
-            if let data = try? Data(contentsOf: imageUrlCache) {
-                cell.userImage.image = UIImage(data: data)
-            }
-        } else {
-            let session = URLSession.shared
-            session.dataTask(with: url) { (data, _, error) in
-                if let error = error {
-                    print(error.localizedDescription)
-                    return
-                }
-                if let data = data, let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        cell.userImage.image = image
-                        cell.activityIndicator.stopAnimating()
-                    }
-                }
-            }.resume()
+
+
+        NetworkManager.downloadImage(url: url) { (image) in
+            cell.userImage.image = image
+            self.activityIndicator.isHidden = true
         }
     }
-    
-    
+
     
 // MARK: - Navigator
-//
+    
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    if segue.identifier == "UserProfileIdentifire",
+        let userVC = segue.destination as? UserInfoVC,
+        let profile = sender as? UserListModel {
+        userVC.profile = profile
+    }
+}
 }
 // MARK: - Data Source
 
@@ -126,14 +88,8 @@ extension UsersListVC: UITableViewDataSource {
 
 //MARK: - Delegate
 extension UsersListVC: UITableViewDelegate {
-    
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell = self.tableView.cellForRow(at: indexPath) as? UserListCell
-        self.selectedCellImage = cell?.userImage.image
-        
-        self.performSegue(withIdentifier: "UserProfileIdentifire", sender: profiles[indexPath.row].avatarUrl)
-    }
-  
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            self.performSegue(withIdentifier: "UserProfileIdentifire", sender: profiles[indexPath.row])
+        }
 }

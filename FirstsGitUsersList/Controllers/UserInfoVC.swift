@@ -15,11 +15,16 @@ class UserInfoVC: UIViewController {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var labels: [UILabel]!
     
+    var profile: UserListModel!
+    var profileInfo: UserInfoModel?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        activityIndicator.isHidden = true
+        print(profile.login)
+    }
+    func setupUI(){
+        
     }
     
 
