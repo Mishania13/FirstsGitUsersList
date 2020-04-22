@@ -20,41 +20,30 @@ class UsersListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.isHidden = true
-        
-        activityIndicator.isHidden = false
+
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
     }
-    
-    
-    
     
     func cellConfiguration(cell: UserListCell, for indexPath: IndexPath) {
         
         let profile = profiles[indexPath.row]
         
-        if let name = profile.login {
-            cell.nameLabel.text = "Name: \(name.capitalized)"
-        }
-        if let id = profile.id {
-            cell.idLabel.text = "ID: \(id)"
-        }
+        if let name = profile.login {  cell.nameLabel.text = "Name: \(name.capitalized)" }
+        if let id = profile.id { cell.idLabel.text = "ID: \(id)" }
         
         cell.userImage.layer.cornerRadius = 8
         cell.userImage.clipsToBounds = true
         
         cell.activityIndicator.startAnimating()
         cell.activityIndicator.hidesWhenStopped = true
-        
-        guard let imageUrl = profile.avatarUrl else {return}
 
-        guard let url = URL(string: imageUrl) else {return}
-
-
-        NetworkManager.downloadImage(url: url) { (image) in
+        NetworkManager.downloadImage(urlString: profile.avatarUrl) { (image) in
             cell.userImage.image = image
-            self.activityIndicator.isHidden = true
+            cell.activityIndicator.stopAnimating()
+
         }
+
     }
 
     
@@ -66,8 +55,8 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let userVC = segue.destination as? UserInfoVC,
         let profile = sender as? UserListModel {
         userVC.profile = profile
+        }
     }
-}
 }
 // MARK: - Data Source
 
@@ -92,4 +81,8 @@ extension UsersListVC: UITableViewDelegate {
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             self.performSegue(withIdentifier: "UserProfileIdentifire", sender: profiles[indexPath.row])
         }
+    
+        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+          return 135
+      }
 }

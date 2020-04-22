@@ -20,6 +20,7 @@
 		D678792E2445F4B60032CFB7 /* UserListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D678792D2445F4B60032CFB7 /* UserListModel.swift */; };
 		D6787938244796780032CFB7 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6787937244796780032CFB7 /* UserInfoModel.swift */; };
 		D678793A2447A0000032CFB7 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67879392447A0000032CFB7 /* UserInfoVC.swift */; };
+		D6D8F710244F2A20000A6F1F /* UserWebPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D8F70F244F2A20000A6F1F /* UserWebPageVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		D678792D2445F4B60032CFB7 /* UserListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListModel.swift; sourceTree = "<group>"; };
 		D6787937244796780032CFB7 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		D67879392447A0000032CFB7 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
+		D6D8F70F244F2A20000A6F1F /* UserWebPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWebPageVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				D67879292445E5CB0032CFB7 /* UsersListVC.swift */,
 				D678792B2445E8A80032CFB7 /* UserListCell.swift */,
 				D67879392447A0000032CFB7 /* UserInfoVC.swift */,
+				D6D8F70F244F2A20000A6F1F /* UserWebPageVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			files = (
 				D678792C2445E8A80032CFB7 /* UserListCell.swift in Sources */,
 				D67879282445C7160032CFB7 /* ImageVC.swift in Sources */,
+				D6D8F710244F2A20000A6F1F /* UserWebPageVC.swift in Sources */,
 				D6488DFA244E087900631269 /* NetworkManager.swift in Sources */,
 				D6787938244796780032CFB7 /* UserInfoModel.swift in Sources */,
 				D67879162445C3900032CFB7 /* MainVC.swift in Sources */,

@@ -12,9 +12,13 @@ class NetworkManager {
     
     static var imageCache = NSCache<NSString, UIImage>()
     
-   static func downloadImage(url: URL, completion: @escaping (UIImage?) -> Void) {
+   static func downloadImage(urlString: String?, completion: @escaping (UIImage?) -> Void) {
         
-        if let cachedImage = imageCache.object(forKey: url.absoluteString as NSString) {
+    guard let _ = urlString else { return }
+    
+    guard let url = URL(string: urlString!) else {return}
+    
+    if let cachedImage = imageCache.object(forKey: url.absoluteString as NSString) {
             completion(cachedImage)
         } else {
             let request = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.returnCacheDataElseLoad, timeoutInterval: 3)

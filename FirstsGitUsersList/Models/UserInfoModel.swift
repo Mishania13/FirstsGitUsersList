@@ -11,14 +11,14 @@ import Foundation
 struct UserInfoModel: Decodable {
     
     let login: String?
-    let avatar_url: String?
-    let html_url: String?
-    let repos_url: String?
+    let avatarUrl: String?
+    let htmlUrl: String?
+    let reposUrl: String?
     let name: String?
     let company: String?
     let location: String?
-    let public_repos: Int?
-    let public_gists: Int?
+    let publicRepos: Int?
+    let publicGists: Int?
     let followers: Int?
-    let created_at: String?
+    let createdAt: String?
 }

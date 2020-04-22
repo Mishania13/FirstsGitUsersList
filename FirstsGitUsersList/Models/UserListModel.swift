@@ -13,4 +13,5 @@ struct UserListModel: Decodable {
     let id: Int?
     let avatarUrl: String?
     let htmlUrl: String?
+    let url: String?
 }

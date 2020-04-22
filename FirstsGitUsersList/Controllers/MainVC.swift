@@ -46,9 +46,9 @@ class MainVC: UIViewController {
                                         profilesVC?.profiles = profiles
             }) {
                 profilesVC?.tableView.isHidden = false
-                profilesVC?.activityIndicator.isHidden = true
                 profilesVC?.tableView.reloadData()
-                
+                profilesVC?.tableView.separatorStyle = .none
+                profilesVC?.activityIndicator.stopAnimating()
             }
         }
     }
