@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D6488DFA244E087900631269 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6488DF9244E087900631269 /* NetworkManager.swift */; };
+		D64D412F246081EE00E6B912 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64D412E246081EE00E6B912 /* WebKit.framework */; };
 		D67879122445C3900032CFB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67879112445C3900032CFB7 /* AppDelegate.swift */; };
 		D67879142445C3900032CFB7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67879132445C3900032CFB7 /* SceneDelegate.swift */; };
 		D67879162445C3900032CFB7 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67879152445C3900032CFB7 /* MainVC.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		D6488DF9244E087900631269 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D64D412E246081EE00E6B912 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		D678790E2445C3900032CFB7 /* FirstsGitUsersList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirstsGitUsersList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67879112445C3900032CFB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D67879132445C3900032CFB7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D64D412F246081EE00E6B912 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,11 +64,20 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		D64D412D246081ED00E6B912 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D64D412E246081EE00E6B912 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D67879052445C3900032CFB7 = {
 			isa = PBXGroup;
 			children = (
 				D67879102445C3900032CFB7 /* FirstsGitUsersList */,
 				D678790F2445C3900032CFB7 /* Products */,
+				D64D412D246081ED00E6B912 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

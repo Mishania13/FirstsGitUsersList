@@ -32,6 +32,8 @@ class UserInfoVC: UIViewController {
         self.activityIndicator.hidesWhenStopped = true
         for lable in self.labels {lable.isHidden = true}
         
+        
+        
         NetworkManager.fetchData(url: userPageUrl, jsonData: { (profileInfo) in
             self.profileInfo = profileInfo
         }) {
@@ -58,7 +60,8 @@ class UserInfoVC: UIViewController {
 // MARK: - Interface working
     
     func setupUI(){
-    
+        
+        
         NetworkManager.downloadImage(urlString: profileInfo!.avatarUrl) { (image) in
             self.userImage.image = image
         }
@@ -78,8 +81,6 @@ class UserInfoVC: UIViewController {
         self.labels[6].text = "Created: \(self.dateFormatter(ourDate: self.profileInfo?.createdAt))"
         
         for lable in self.labels {lable.isHidden = false}
-
-
     }
 }
 // MARK: - Support functions
