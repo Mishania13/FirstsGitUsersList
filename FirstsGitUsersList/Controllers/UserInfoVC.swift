@@ -30,7 +30,8 @@ class UserInfoVC: UIViewController {
         self.frameView.isHidden = true
         self.activityIndicator.startAnimating()
         self.activityIndicator.hidesWhenStopped = true
-        for lable in self.labels {lable.isHidden = true}
+        for lable in self.labels {lable.isHidden = true
+        }
         
         
         
